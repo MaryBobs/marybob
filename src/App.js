@@ -4,6 +4,7 @@ import './App.css';
 import Header from './components/Header';
 import Posts from './components/Posts';
 import Post from './components/Post';
+import NotFound from './components/NotFound';
 
 
 class App extends Component {
@@ -36,9 +37,12 @@ class App extends Component {
           <Route path="/post/:postSlug"
           render={props => {
             const post = this.state.posts.find(post => post.slug === props.match.params.postSlug);
+            if (post)
             return <Post post={post} />;
+            else return <NotFound />;
           }}
           />
+          <Route component={NotFound} />
         </Switch>
       </div>
       </Router>
