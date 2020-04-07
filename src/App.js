@@ -7,6 +7,7 @@ import Post from './components/Post';
 import NotFound from './components/NotFound';
 import PostForm from './components/PostForm';
 import Message from './components/Message.js';
+import SimpleStorage from 'react-simple-storage';
 
 
 class App extends Component {
@@ -62,6 +63,7 @@ class App extends Component {
       <Router>
       <div className="app">
         MARYBOBS
+        <SimpleStorage parent={this} />
         <Header />
         {this.state.message && <Message type={this.state.message} />}
         <Switch>
