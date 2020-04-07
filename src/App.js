@@ -11,18 +11,18 @@ import PostForm from './components/PostForm';
 class App extends Component {
   state = {
     posts: [
-      {id: 1,
-      slug: "hello-post",
-      title: "1st blog post",
-      content: "welcome to my blog"},
-      {id: 2,
-      slug: "hello-again",
-      title: "Me again!",
-      content: "todays project"},
-      {id: 3,
-      slug: "hello-blog",
-      title: "next blog",
-      content: "look at what I made today!"}
+      // {id: 1,
+      // slug: "hello-post",
+      // title: "1st blog post",
+      // content: "welcome to my blog"},
+      // {id: 2,
+      // slug: "hello-again",
+      // title: "Me again!",
+      // content: "todays project"},
+      // {id: 3,
+      // slug: "hello-blog",
+      // title: "next blog",
+      // content: "look at what I made today!"}
     ]
   }
 
