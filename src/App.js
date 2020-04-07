@@ -6,32 +6,25 @@ import Posts from './components/Posts';
 import Post from './components/Post';
 import NotFound from './components/NotFound';
 import PostForm from './components/PostForm';
+import Message from './components/Message.js';
 
 
 class App extends Component {
   state = {
-    posts: [
-      // {id: 1,
-      // slug: "hello-post",
-      // title: "1st blog post",
-      // content: "welcome to my blog"},
-      // {id: 2,
-      // slug: "hello-again",
-      // title: "Me again!",
-      // content: "todays project"},
-      // {id: 3,
-      // slug: "hello-blog",
-      // title: "next blog",
-      // content: "look at what I made today!"}
-    ]
-  }
+    posts: [],
+    message: null
+  };
 
   addNewPost = (post) => {
     post.id = this.state.posts.length + 1;
     post.slug = encodeURIComponent( post.title.toLowerCase().split(" ").join("-"));
     this.setState({
-      posts: [...this.state.posts, post]
+      posts: [...this.state.posts, post],
+      message: "saved"
     });
+    setTimeout(() => {
+      this.setState({ message: null});
+    }, 1600);
   };
 
   render() {
@@ -40,6 +33,7 @@ class App extends Component {
       <div className="app">
         MARYBOBS
         <Header />
+        {this.state.message && <Message type={this.state.message} />}
         <Switch>
           <Route exact path="/"
           render={() => <Posts posts={this.state.posts} />}
