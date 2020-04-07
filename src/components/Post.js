@@ -1,5 +1,5 @@
 import React from 'react';
-import {QuillDeltaToHtmlConverter} from "quill-delta-to-html";
+import {QuillDeltaToHtmlConverter} from 'quill-delta-to-html';
 
 const Post = ({post}) => {
     const converter = new QuillDeltaToHtmlConverter(
