@@ -6,6 +6,7 @@ const Header = props => (
     <ul className="container">
         <li key="home"><Link to="/">Home Page</Link></li>
         <li><Link to="/new">New Post</Link></li>
+        <li><Link to="/login">Login</Link></li>
     </ul>
 </header>
 );

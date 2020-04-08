@@ -8,6 +8,7 @@ import NotFound from './components/NotFound';
 import PostForm from './components/PostForm';
 import Message from './components/Message.js';
 import SimpleStorage from 'react-simple-storage';
+import Login from './components/Login';
 
 
 class App extends Component {
@@ -78,6 +79,7 @@ class App extends Component {
             else return <NotFound />;
           }}
           />
+          <Route exact path="/login" component={Login} />
           <Route exact path="/new" render={() => (
             <PostForm addNewPost={this.addNewPost} post={{
             id: 0, slug: "", title: "", content: "" }}
