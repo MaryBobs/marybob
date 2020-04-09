@@ -9,7 +9,7 @@ import PostForm from './components/PostForm';
 import Message from './components/Message.js';
 import SimpleStorage from 'react-simple-storage';
 import Login from './components/Login';
-
+import firebase from './firebase';
 
 class App extends Component {
   state = {
@@ -59,6 +59,14 @@ class App extends Component {
     }
   };
 
+  onLogin = (email, password) => {
+    firebase
+    .auth()
+    .signInWithEmailAndPassword(email, password)
+    .then(user => console.log("Logged in"))
+    .catch(error => console.error(error));
+  }
+
   render() {
     return (
       <Router>
@@ -79,7 +87,7 @@ class App extends Component {
             else return <NotFound />;
           }}
           />
-          <Route exact path="/login" component={Login} />
+          <Route exact path="/login" render={() => <Login onLogin={this.onLogin} />} />
           <Route exact path="/new" render={() => (
             <PostForm addNewPost={this.addNewPost} post={{
             id: 0, slug: "", title: "", content: "" }}
