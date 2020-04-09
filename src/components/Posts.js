@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-const Posts = ({posts, deletePost}) => (
+const Posts = ({posts, deletePost, isAuthenticated}) => (
     <article className="posts container">
         <h1>Posts</h1>
         <ul>
@@ -10,11 +10,13 @@ const Posts = ({posts, deletePost}) => (
             {posts.map(post => (
                 <li key={post.id}>
                     <h2><Link to={`/post/${post.slug}`}>{post.title}</Link></h2>
+                    {isAuthenticated && (
                     <p>
                         <Link to={`/edit/${post.slug}`}>Edit</Link>
                         {" | "}
                         <button className="linkLike" onClick={() => deletePost(post)}>Delete</button>
                     </p>
+                    )}
                 </li>
             ))}
         </ul>
