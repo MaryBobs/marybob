@@ -18,15 +18,33 @@ class App extends Component {
     isAuthenticated: false
   };
 
+  componentDidMount() {
+    const postsRef = firebase.database().ref("posts");
+    postsRef.on("value", snapshot => {
+      const posts = snapshot.val();
+      const newStatePosts = [];
+      for (let post in posts) {
+        newStatePosts.push({
+          key: post,
+          slug: posts[post].slug,
+          title: posts[post].title,
+          content: posts[post].content
+        });
+      }
+      this.setState({ posts: newStatePosts });
+    });
+  }
+
   getNewSlugFromTitle = (title) => 
     encodeURIComponent(title.toLowerCase().split(" ").join("-")
   );
   
   addNewPost = (post) => {
-    post.id = this.state.posts.length + 1;
+    const postsRef = firebase.database().ref("posts");
     post.slug = this.getNewSlugFromTitle(post.title);
+    delete post.key;
+    postsRef.push(post);
     this.setState({
-      posts: [...this.state.posts, post],
       message: "saved"
     });
     setTimeout(() => {
@@ -102,8 +120,8 @@ class App extends Component {
             <Redirect to="/" /> 
           ) } />
           <Route exact path="/new" render={() => this.state.isAuthenticated ? (
-            <PostForm addNewPost={this.addNewPost} post={{
-            id: 0, slug: "", title: "", content: "" }} />) : (
+            <PostForm addNewPost={this.addNewPost} 
+            post={{ key: null, slug: "", title: "", content: "" }} />) : (
               <Redirect to="/login" /> 
               ) } />
           <Route path="/edit/:postSlug" render={props => { 
