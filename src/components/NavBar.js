@@ -8,9 +8,10 @@ const NavBar = () => (
     <header className="app-header">
         {/* <h1 className="nav-name">MARY CUMMINGS</h1> */}
         <ul className="container">
-            <li><Link to="/" className="link"><img src={Duck} className="nav-image"/>:ABOUT</Link></li>
+            <li><Link to="/about" className="link"><img src={Duck} className="nav-image"/>:ABOUT</Link></li>
             <li><Link to="/blog" className="link"><img src={Beach} className="nav-image"/>:BLOG</Link></li>
             <li><Link to="/projects" className="link"><img src={Shore} className="nav-image"/>:PROJECTS</Link></li>
+            <li><Link to="/contact" className="link"><img src={Duck} className="nav-image" />:CONTACT</Link></li>
         </ul>
     </header>
 )

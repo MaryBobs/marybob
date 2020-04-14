@@ -17,7 +17,7 @@
   }
 
   .app .container {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;    
   }
 
@@ -158,9 +158,23 @@
   }
 
   .info-box {
+    /* display: flex; */
     color: #353944;
     text-align: center;
     border-color:  #353944;
     border-radius: 50%;
     border-style: solid 2px;
+  }
+
+  .about-image {
+    display: inline;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: solid 1px;
+    border-color: white;
   }
