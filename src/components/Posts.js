@@ -9,10 +9,10 @@ const Posts = ({posts, deletePost, isAuthenticated}) => (
             )}
             {posts.map(post => (
                 <li key={post.id}>
-                    <h2><Link to={`/post/${post.slug}`}>{post.title}</Link></h2>
+                    <h2><Link to={`/blog/post/${post.slug}`}>{post.title}</Link></h2>
                     {isAuthenticated && (
                     <p>
-                        <Link to={`/edit/${post.slug}`}>Edit</Link>
+                        <Link to={`/blog/edit/${post.slug}`}>Edit</Link>
                         {" | "}
                         <button className="linkLike" onClick={() => deletePost(post)}>Delete</button>
                     </p>

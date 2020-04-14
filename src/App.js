@@ -1,16 +1,30 @@
-import React from 'react';
+import React, {Component} from 'react';
 // import HomePageContainer from './containers/HomePageContainer';
 import Blog from './containers/Blog';
 import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
+import Header from './components/Header';
+import Projects from './containers/Projects';
+import About from './components/About';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-     {/* <HomePageContainer></HomePageContainer> */}
-     <Blog>Blog</Blog>
-    </div>
-  );
+class App extends Component {
+
+    render() {
+        return (
+            <Router>
+                <div className="app">
+                    MAIN
+                    <Header />
+                    <Switch>
+                        <Route exact path="/" component={About} />
+                        <Route path="/blog" component={Blog} />
+                        <Route path="/projects" component={Projects} />
+                    </Switch>
+                </div>
+            </Router>
+        )
+    }
 }
+
 
 export default App;

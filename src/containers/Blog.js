@@ -103,10 +103,10 @@ class Blog extends Component {
         <BlogHeader isAuthenticated={this.state.isAuthenticated} onLogout={this.onLogout} />
         {this.state.message && <Message type={this.state.message} />}
         <Switch>
-          <Route exact path="/"
+          <Route exact path="/blog"
           render={() => <Posts posts={this.state.posts} deletePost={this.deletePost} isAuthenticated={this.state.isAuthenticated}/>}
           />
-          <Route path="/post/:postSlug"
+          <Route path="/blog/post/:postSlug"
           render={props => {
             const post = this.state.posts.find(post => post.slug === props.match.params.postSlug);
             if (post)
@@ -114,24 +114,24 @@ class Blog extends Component {
             else return <NotFound />;
           }}
           />
-          <Route exact path="/login" render={() => !this.state.isAuthenticated ? (<Login onLogin={this.onLogin} />) : (
-            <Redirect to="/" /> 
+          <Route exact path="/blog/login" render={() => !this.state.isAuthenticated ? (<Login onLogin={this.onLogin} />) : (
+            <Redirect to="/blog" /> 
           ) } />
-          <Route exact path="/new" render={() => this.state.isAuthenticated ? (
+          <Route exact path="/blog/new" render={() => this.state.isAuthenticated ? (
             <PostForm addNewPost={this.addNewPost} 
             post={{ key: null, slug: "", title: "", content: "" }} />) : (
-              <Redirect to="/login" /> 
+              <Redirect to="/blog/login" /> 
               ) } />
-          <Route path="/edit/:postSlug" render={props => { 
+          <Route path="/blog/edit/:postSlug" render={props => { 
             const post =this.state.posts.find(
               post => post.slug === props.match.params.postSlug
             );
             if (post && this.state.isAuthenticated) {
               return <PostForm post={post} updatePost={this.updatePost} />;
             } else if (post && !this.state.isAuthenticated) {
-              return <Redirect to="/login" />;
+              return <Redirect to="/blog/login" />;
             } else {
-              return <Redirect to="/" />;
+              return <Redirect to="/blog" />;
             }
           }} />
           <Route component={NotFound} />
