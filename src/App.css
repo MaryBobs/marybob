@@ -28,6 +28,34 @@
   padding: 1rem;
 }
 
+.link {
+  color: white;
+  padding: 20px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: green;
+  border-color: green;
+}
+
+.nav-image {
+  display: inline;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: solid 1px;
+  border-color: white;
+}
+
+.nav-image:hover {
+  border-color: green;
+}
   .app-header a {
     color:#fff;
     font-weight: normal;
@@ -128,3 +156,4 @@
   .app button.linkLike:hover {
      cursor: pointer;
   }
+

@@ -98,7 +98,7 @@ class Blog extends Component {
     return (
       <Router>
       <div className="app">
-        MARYBOBS
+        {/* MARYBOBS */}
         <SimpleStorage parent={this} />
         <BlogHeader isAuthenticated={this.state.isAuthenticated} onLogout={this.onLogout} />
         {this.state.message && <Message type={this.state.message} />}
