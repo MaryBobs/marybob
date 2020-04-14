@@ -157,3 +157,10 @@
      cursor: pointer;
   }
 
+  .info-box {
+    color: #353944;
+    text-align: center;
+    border-color:  #353944;
+    border-radius: 50%;
+    border-style: solid 2px;
+  }
