@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Home = () => (
-    <h2>MARY CUMMINGS</h2>
+    <h2 className="home-name">MARY CUMMINGS</h2>
 )
 
 export default Home;

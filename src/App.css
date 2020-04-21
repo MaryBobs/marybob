@@ -178,3 +178,7 @@
     border: solid 1px;
     border-color: white;
   }
+
+  .home-name {
+    color: red;
+  }
