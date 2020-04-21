@@ -57,7 +57,7 @@
   border-color: green;
 }
   .app-header a {
-    color:#fff;
+    color: red;
     font-weight: normal;
   }
   .app-header ul {    
@@ -179,6 +179,6 @@
     border-color: white;
   }
 
-  .home-name {
+  .my-name {
     color: red;
   }
